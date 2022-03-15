@@ -19,6 +19,7 @@ defmodule SlotSampleWeb.Router do
 
     get "/", PageController, :index
     live "/demo", Demo
+    live "/demo2", Demo2
   end
 
   # Other scopes may use custom stacks.

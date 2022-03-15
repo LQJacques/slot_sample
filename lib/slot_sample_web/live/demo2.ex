@@ -1,40 +1,14 @@
-defmodule SlotSampleWeb.Demo do
-  use Surface.LiveView
+defmodule SlotSampleWeb.Demo2 do
+  use Phoenix.LiveView
 
-  alias SlotSampleWeb.Components.{SurfaceComponentWithSlots, PhoenixComponentWithSlots}
+  alias SlotSampleWeb.Components.PhoenixComponentWithSlots
 
   import PhoenixComponentWithSlots
 
   def render(assigns) do
-    ~F"""
+    ~H"""
     <div>
       <ul>
-        <li>
-          Case 1: Works.
-          <SurfaceComponentWithSlots>
-            <div style={"background-color: lightblue;"}>Content for body/default slot.</div>
-          </SurfaceComponentWithSlots>
-        </li>
-        <li>
-          Case 2: Works.
-          <SurfaceComponentWithSlots>
-            <:header>
-              <div style={"background-color: lightgreen;"}>Content for header slot.</div>
-            </:header>
-
-            <div style={"background-color: lightblue;"}>Content for body/default slot.</div>
-
-            <:footer>
-              <div style={"background-color: lightgray;"}>Content for footer slot.</div>
-            </:footer>
-          </SurfaceComponentWithSlots>
-        </li>
-        <li>
-          Case 3: Works.
-          <PhoenixComponentWithSlots.my_component>
-            <div style={"background-color: lightblue;"}>Content for body/default slot.</div>
-          </PhoenixComponentWithSlots.my_component>
-        </li>
         <li>
           Case 4: Works.
           <.my_component>
@@ -42,8 +16,7 @@ defmodule SlotSampleWeb.Demo do
           </.my_component>
         </li>
         <li>
-          Case 5: Does not work.
-          {!--
+          Case 5: Works.
           <PhoenixComponentWithSlots.my_component>
             <:header>
               <div style={"background-color: lightgreen;"}>Content for header slot.</div>
@@ -55,12 +28,10 @@ defmodule SlotSampleWeb.Demo do
               <div style={"background-color: lightgray;"}>Content for footer slot.</div>
             </:footer>
           </PhoenixComponentWithSlots.my_component>
-          --}
         </li>
 
         <li>
-          Case 6: Does not work.
-          {!--
+          Case 6: Works.
           <.my_component>
             <:header>
               <div style={"background-color: lightgreen;"}>Content for header slot.</div>
@@ -72,7 +43,6 @@ defmodule SlotSampleWeb.Demo do
               <div style={"background-color: lightgray;"}>Content for footer slot.</div>
             </:footer>
           </.my_component>
-          --}
         </li>
       </ul>
     </div>
